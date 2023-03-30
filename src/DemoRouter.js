@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useParams, useLocation, Redirect } from "react-router-dom";
-
-
-
-
+import CrudDemo from './CrudDemo';
 
 
 
@@ -15,10 +12,13 @@ const DemoRouter = () => {
         <switch>
 
        <Route exact path="/" component={Welcome}/>
-       <Route exact path="/home" component={Home}/>
-       <Route exact path="/person" component={Person}/>
-       <Route exact path="/About Us" component={About}/>
+       <Route  path="/home" component={Home}/>
+       <Route  path="/person" component={Person}/>
+       <Route  path="/About Us" component={About}/>
+       <Route   path="/crud" component={CrudDemo}/>
        <Route  component={NotFound}/>
+
+       <Route path='/data/:id' component={PersonDetails} />
         </switch>
         </Router>        
       </div>
@@ -67,6 +67,10 @@ const Header = () => {
         <li class="nav-item">
         <Link className='nav-link' to="/about" >About Us</Link>
         </li>
+
+        <li class="nav-item">
+        <Link className='nav-link' to="/CRUD" >Crud</Link>
+        </li>
       </ul>
       <span class="navbar-text">
        <button> Sign Up    </button>
@@ -108,3 +112,5 @@ const NotFound = () => {
     </div>
   );
 };
+
+export default DemoRouter;
